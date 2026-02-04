@@ -1,0 +1,155 @@
+.reviewCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.reviewCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.userInfo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, #9333ea 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verifiedBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+  font-size: 18px;
+}
+
+.starFilled {
+  color: #fbbf24;
+}
+
+.starEmpty {
+  color: var(--border-color);
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.photos {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.helpfulBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.helpfulBtn:hover {
+  background: var(--bg-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.thumbIcon {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .reviewCard {
+    padding: 16px;
+  }
+}

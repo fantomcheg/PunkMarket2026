@@ -1,0 +1,153 @@
+.topNav {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.topNavContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Левая навигация */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.navLink {
+  color: var(--text-secondary);
+  font-size: 13px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--primary);
+}
+
+.separator {
+  color: var(--border-color);
+  user-select: none;
+}
+
+.specialLink {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Правая секция */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cityButton,
+.addressButton,
+.langButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.cityButton:hover,
+.addressButton:hover,
+.langButton:hover {
+  color: var(--primary);
+  background: rgba(108, 99, 255, 0.05);
+}
+
+.cityButton svg,
+.addressButton svg,
+.langButton svg {
+  flex-shrink: 0;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .navLinks {
+    gap: 14px;
+  }
+
+  .navLink {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navLinks {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .navLinks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rightSection {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .topNav {
+    padding: 6px 0;
+  }
+
+  .topNavContent {
+    gap: 12px;
+  }
+
+  .navLinks {
+    gap: 12px;
+  }
+
+  .navLink {
+    font-size: 11px;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  /* Скрываем некоторые ссылки на мобильных */
+  .navLink:nth-child(n+6) {
+    display: none;
+  }
+
+  .rightSection {
+    gap: 8px;
+  }
+
+  .cityButton,
+  .addressButton,
+  .langButton {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+
+  /* Скрываем текст "Укажите адрес" на мобильных */
+  .addressButton {
+    padding: 4px;
+  }
+
+  .addressButton svg {
+    margin: 0;
+  }
+}

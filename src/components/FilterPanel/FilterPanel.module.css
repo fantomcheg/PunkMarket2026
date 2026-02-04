@@ -1,0 +1,225 @@
+.filterPanel {
+  background: var(--bg-white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 20px;
+}
+
+[data-theme="dark"] .filterPanel {
+  background: var(--bg-dark-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.resetButton {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background: var(--primary-light);
+}
+
+.filterBlock {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterBlock:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filterSubtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+/* Поиск */
+.searchInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(205, 43, 49, 0.1);
+}
+
+[data-theme="dark"] .searchInput {
+  background: var(--bg-dark);
+  border-color: var(--border-dark);
+}
+
+/* Списки чекбоксов */
+.brandList {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.checkboxLabel:hover {
+  color: var(--text-primary);
+}
+
+.checkbox,
+.radio {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Цена */
+.priceInputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.priceInput {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-white);
+}
+
+.priceInput:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .priceInput {
+  background: var(--bg-dark);
+  border-color: var(--border-dark);
+}
+
+.rangeSlider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-color);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.rangeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.rangeSlider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+}
+
+/* Селект */
+.select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(205, 43, 49, 0.1);
+}
+
+[data-theme="dark"] .select {
+  background: var(--bg-dark);
+  border-color: var(--border-dark);
+}
+
+/* Подсказки удалены */
+.filterInfo {
+  margin-top: 20px;
+  padding: 12px;
+  background: var(--primary-light);
+  border-radius: 8px;
+}
+
+.infoText {
+  margin: 0;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .filterPanel {
+    position: static;
+    padding: 16px;
+  }
+
+  .brandList {
+    max-height: 150px;
+  }
+
+  .filterBlock {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+  }
+}

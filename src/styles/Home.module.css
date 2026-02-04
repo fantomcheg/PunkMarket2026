@@ -1,0 +1,289 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: 0 0 24px;
+}
+
+/* Баннер */
+.banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: var(--border-radius);
+  padding: 48px;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.bannerTitle {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--accent);
+  text-shadow: 0 2px 8px rgba(255, 139, 61, 0.3);
+}
+
+.bannerText {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 32px;
+}
+
+.bannerFeatures {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.featureIcon {
+  font-size: 24px;
+}
+
+/* Секции */
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sectionLink {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.sectionLink:hover {
+  color: var(--secondary);
+  transform: translateX(4px);
+}
+
+.writeReviewBtn {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.writeReviewBtn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Сетка товаров */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+/* Преимущества */
+.advantages {
+  margin: 64px 0;
+}
+
+.advantagesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.advantageCard {
+  background: var(--bg-white);
+  padding: 32px 24px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.advantageCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.advantageIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.advantageTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.advantageText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Футер */
+.footer {
+  background: var(--text-primary);
+  color: white;
+  padding: 48px 0 24px;
+  margin-top: 64px;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.footerSection {
+}
+
+.footerTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.footerText {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.footerList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerList li {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.footerList li:hover {
+  color: var(--secondary);
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    padding: 32px 24px;
+  }
+  
+  .bannerTitle {
+    font-size: 32px;
+  }
+  
+  .bannerText {
+    font-size: 16px;
+  }
+  
+  .bannerFeatures {
+    gap: 16px;
+  }
+  
+  .feature {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+  }
+  
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  
+  .advantagesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

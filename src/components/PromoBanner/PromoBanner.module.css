@@ -1,0 +1,250 @@
+/* Главный баннер */
+.mainBanner {
+  background: linear-gradient(135deg, #005bff 0%, #0047d9 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 91, 255, 0.15);
+}
+
+.bannerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px;
+  min-height: 320px;
+}
+
+.bannerLeft {
+  flex: 1;
+  max-width: 500px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.bannerTitle {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.bannerSubtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 24px;
+}
+
+.bannerButton {
+  display: inline-block;
+  background: white;
+  color: #005bff;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bannerButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bannerRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bannerImage {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Вторичные баннеры */
+.secondaryBanners {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.secondaryBanner {
+  background: var(--bg-white);
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+}
+
+.secondaryBanner:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.secondaryContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.secondaryIcon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.secondaryText {
+  flex: 1;
+}
+
+.secondaryTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.secondaryDesc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Маленькие баннеры */
+.smallBanners {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.smallBanner {
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.smallBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+}
+
+.smallBanner:hover::before {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.smallBanner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.smallContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.smallIcon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.smallTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.smallDesc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .bannerContent {
+    padding: 32px;
+  }
+
+  .bannerTitle {
+    font-size: 32px;
+  }
+
+  .secondaryBanners {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .smallBanners {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bannerContent {
+    flex-direction: column;
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .bannerLeft {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .bannerTitle {
+    font-size: 28px;
+  }
+
+  .bannerSubtitle {
+    font-size: 16px;
+  }
+
+  .bannerRight {
+    width: 100%;
+  }
+
+  .bannerImage {
+    max-width: 100%;
+  }
+
+  .secondaryBanners {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .smallBanners {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

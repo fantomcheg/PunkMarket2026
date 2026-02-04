@@ -1,0 +1,134 @@
+/* X-Ray Toggle - переключатель */
+
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle.active {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(108, 99, 255, 0.2) 100%);
+  border-color: var(--xray-glow);
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3),
+              0 0 40px rgba(0, 217, 255, 0.2);
+}
+
+.toggle.active:hover {
+  box-shadow: 0 12px 40px rgba(0, 217, 255, 0.4),
+              0 0 60px rgba(0, 217, 255, 0.3);
+}
+
+/* Иконка */
+.iconWrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle.active .iconWrapper {
+  background: var(--xray-glow);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.toggle.active .icon {
+  color: #1a1a2e;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Лейбл */
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.labelText {
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.toggle.active .labelText {
+  color: var(--xray-glow);
+}
+
+.status {
+  color: #666;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.toggle.active .status {
+  color: var(--xray-glow);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .toggle {
+    top: 10px;
+    right: 10px;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .iconWrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .labelText {
+    font-size: 12px;
+  }
+
+  .status {
+    font-size: 9px;
+  }
+}

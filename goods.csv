@@ -1,0 +1,355 @@
+1,"Смартфон Samsung Galaxy S24 Ultra 128GB",Электроника,http://localhost:3000/product/1
+2,"Смартфон Samsung Galaxy S24+ 256GB",Электроника,http://localhost:3000/product/2
+3,"Смартфон Samsung Galaxy S24 512GB",Электроника,http://localhost:3000/product/3
+4,"Смартфон Samsung Galaxy Z Fold 5 1TB",Электроника,http://localhost:3000/product/4
+5,"Смартфон Samsung Galaxy Z Flip 5 64GB",Электроника,http://localhost:3000/product/5
+6,"Смартфон Apple iPhone 15 Pro Max 128GB",Электроника,http://localhost:3000/product/6
+7,"Смартфон Apple iPhone 15 Pro 256GB",Электроника,http://localhost:3000/product/7
+8,"Смартфон Apple iPhone 15 Plus 512GB",Электроника,http://localhost:3000/product/8
+9,"Смартфон Apple iPhone 15 1TB",Электроника,http://localhost:3000/product/9
+10,"Смартфон Apple iPhone 14 Pro 64GB",Электроника,http://localhost:3000/product/10
+11,"Смартфон Xiaomi 14 Ultra 128GB",Электроника,http://localhost:3000/product/11
+12,"Смартфон Xiaomi 14 Pro 256GB",Электроника,http://localhost:3000/product/12
+13,"Смартфон Xiaomi 14 512GB",Электроника,http://localhost:3000/product/13
+14,"Смартфон Xiaomi 13T Pro 1TB",Электроника,http://localhost:3000/product/14
+15,"Смартфон Xiaomi 13T 64GB",Электроника,http://localhost:3000/product/15
+16,"Смартфон OPPO Find X7 Pro 128GB",Электроника,http://localhost:3000/product/16
+17,"Смартфон OPPO Find X7 256GB",Электроника,http://localhost:3000/product/17
+18,"Смартфон OPPO Reno 11 Pro 512GB",Электроника,http://localhost:3000/product/18
+19,"Смартфон OPPO Reno 11 1TB",Электроника,http://localhost:3000/product/19
+20,"Смартфон OPPO A79 64GB",Электроника,http://localhost:3000/product/20
+21,"Смартфон Realme GT 5 Pro 128GB",Электроника,http://localhost:3000/product/21
+22,"Смартфон Realme GT 5 256GB",Электроника,http://localhost:3000/product/22
+23,"Смартфон Realme 12 Pro+ 512GB",Электроника,http://localhost:3000/product/23
+24,"Смартфон Realme 12 Pro 1TB",Электроника,http://localhost:3000/product/24
+25,"Смартфон Realme 12 64GB",Электроника,http://localhost:3000/product/25
+26,"Смартфон OnePlus 12 Pro 128GB",Электроника,http://localhost:3000/product/26
+27,"Смартфон OnePlus 12 256GB",Электроника,http://localhost:3000/product/27
+28,"Смартфон OnePlus 11T 512GB",Электроника,http://localhost:3000/product/28
+29,"Смартфон OnePlus 11 1TB",Электроника,http://localhost:3000/product/29
+30,"Смартфон OnePlus Nord 3 64GB",Электроника,http://localhost:3000/product/30
+31,"Смартфон Google Pixel 8 Pro 128GB",Электроника,http://localhost:3000/product/31
+32,"Смартфон Google Pixel 8 256GB",Электроника,http://localhost:3000/product/32
+33,"Смартфон Google Pixel 7a 512GB",Электроника,http://localhost:3000/product/33
+34,"Смартфон Google Pixel 7 Pro 1TB",Электроника,http://localhost:3000/product/34
+35,"Смартфон Google Pixel 7 64GB",Электроника,http://localhost:3000/product/35
+36,"Смартфон Motorola Edge 40 Pro 128GB",Электроника,http://localhost:3000/product/36
+37,"Смартфон Motorola Edge 40 256GB",Электроника,http://localhost:3000/product/37
+38,"Смартфон Motorola G84 512GB",Электроника,http://localhost:3000/product/38
+39,"Смартфон Motorola G54 1TB",Электроника,http://localhost:3000/product/39
+40,"Смартфон Motorola G34 64GB",Электроника,http://localhost:3000/product/40
+41,"Наушники Sony WH-1000XM5",Электроника,http://localhost:3000/product/41
+42,"Наушники Sony WH-1000XM4",Электроника,http://localhost:3000/product/42
+43,"Наушники Sony WF-1000XM5",Электроника,http://localhost:3000/product/43
+44,"Наушники Sony WF-1000XM4",Электроника,http://localhost:3000/product/44
+45,"TWS наушники Apple AirPods Pro 2",Электроника,http://localhost:3000/product/45
+46,"TWS наушники Apple AirPods 3",Электроника,http://localhost:3000/product/46
+47,"TWS наушники Apple AirPods Max",Электроника,http://localhost:3000/product/47
+48,"TWS наушники Apple AirPods 2",Электроника,http://localhost:3000/product/48
+49,"TWS наушники Samsung Galaxy Buds2 Pro",Электроника,http://localhost:3000/product/49
+50,"TWS наушники Samsung Galaxy Buds2",Электроника,http://localhost:3000/product/50
+51,"TWS наушники Samsung Galaxy Buds FE",Электроника,http://localhost:3000/product/51
+52,"Наушники JBL Tune 770NC",Электроника,http://localhost:3000/product/52
+53,"Наушники JBL Live 660NC",Электроника,http://localhost:3000/product/53
+54,"Наушники JBL Flip 6",Электроника,http://localhost:3000/product/54
+55,"Наушники JBL Charge 5",Электроника,http://localhost:3000/product/55
+56,"Наушники Bose QuietComfort Ultra",Электроника,http://localhost:3000/product/56
+57,"Наушники Bose QuietComfort 45",Электроника,http://localhost:3000/product/57
+58,"Наушники Bose Sport Earbuds",Электроника,http://localhost:3000/product/58
+59,"Наушники Sennheiser Momentum 4",Электроника,http://localhost:3000/product/59
+60,"Наушники Sennheiser HD 660S2",Электроника,http://localhost:3000/product/60
+61,"Наушники Sennheiser IE 200",Электроника,http://localhost:3000/product/61
+62,"Наушники Audio-Technica ATH-M50xBT2",Электроника,http://localhost:3000/product/62
+63,"Наушники Audio-Technica ATH-M20xBT",Электроника,http://localhost:3000/product/63
+64,"Наушники Audio-Technica ATH-CKS50TW",Электроника,http://localhost:3000/product/64
+65,"Наушники Beats Studio Pro",Электроника,http://localhost:3000/product/65
+66,"Наушники Beats Solo 4",Электроника,http://localhost:3000/product/66
+67,"Наушники Beats Fit Pro",Электроника,http://localhost:3000/product/67
+68,"TWS наушники Beats Studio Buds+",Электроника,http://localhost:3000/product/68
+69,"Умные часы Apple Watch Series 9 45mm",Электроника,http://localhost:3000/product/69
+70,"Умные часы Apple Watch Series 9 41mm",Электроника,http://localhost:3000/product/70
+71,"Умные часы Apple Watch Ultra 2",Электроника,http://localhost:3000/product/71
+72,"Умные часы Samsung Galaxy Watch6 Classic",Электроника,http://localhost:3000/product/72
+73,"Умные часы Samsung Galaxy Watch6",Электроника,http://localhost:3000/product/73
+74,"Умные часы Samsung Galaxy Watch5 Pro",Электроника,http://localhost:3000/product/74
+75,"Умные часы Xiaomi Watch S3",Электроника,http://localhost:3000/product/75
+76,"Умные часы Xiaomi Watch 2 Pro",Электроника,http://localhost:3000/product/76
+77,"Фитнес-браслет Xiaomi Smart Band 8 Pro",Электроника,http://localhost:3000/product/77
+78,"Умные часы Huawei Watch GT 4",Электроника,http://localhost:3000/product/78
+79,"Фитнес-браслет Huawei Watch Fit 3",Электроника,http://localhost:3000/product/79
+80,"Фитнес-браслет Huawei Band 9",Электроника,http://localhost:3000/product/80
+81,"Умные часы Garmin Fenix 7",Электроника,http://localhost:3000/product/81
+82,"Умные часы Garmin Forerunner 965",Электроника,http://localhost:3000/product/82
+83,"Умные часы Garmin Venu 3",Электроника,http://localhost:3000/product/83
+84,"Умные часы Amazfit GTR 4",Электроника,http://localhost:3000/product/84
+85,"Умные часы Amazfit GTS 4",Электроника,http://localhost:3000/product/85
+86,"Умные часы Amazfit T-Rex Ultra",Электроника,http://localhost:3000/product/86
+87,"Умные часы Fitbit Sense 2",Электроника,http://localhost:3000/product/87
+88,"Умные часы Fitbit Versa 4",Электроника,http://localhost:3000/product/88
+89,"Умные часы Fitbit Charge 6",Электроника,http://localhost:3000/product/89
+90,"Планшет Apple iPad Pro 12.9"" 64GB",Электроника,http://localhost:3000/product/90
+91,"Планшет Apple iPad Pro 11"" 128GB",Электроника,http://localhost:3000/product/91
+92,"Планшет Apple iPad Air 256GB",Электроника,http://localhost:3000/product/92
+93,"Планшет Apple iPad 10.2"" 512GB",Электроника,http://localhost:3000/product/93
+94,"Планшет Samsung Galaxy Tab S9 Ultra 1TB",Электроника,http://localhost:3000/product/94
+95,"Планшет Samsung Galaxy Tab S9+ 64GB",Электроника,http://localhost:3000/product/95
+96,"Планшет Samsung Galaxy Tab S9 128GB",Электроника,http://localhost:3000/product/96
+97,"Планшет Samsung Galaxy Tab A9+ 256GB",Электроника,http://localhost:3000/product/97
+98,"Планшет Xiaomi Pad 6 Pro 512GB",Электроника,http://localhost:3000/product/98
+99,"Планшет Xiaomi Pad 6 1TB",Электроника,http://localhost:3000/product/99
+100,"Планшет Xiaomi Pad 5 64GB",Электроника,http://localhost:3000/product/100
+101,"Планшет Xiaomi Redmi Pad SE 128GB",Электроника,http://localhost:3000/product/101
+102,"Планшет Lenovo Tab P12 256GB",Электроника,http://localhost:3000/product/102
+103,"Планшет Lenovo Tab P11 Pro 512GB",Электроника,http://localhost:3000/product/103
+104,"Планшет Lenovo Tab M10 Plus 1TB",Электроника,http://localhost:3000/product/104
+105,"Планшет Lenovo Tab M8 64GB",Электроника,http://localhost:3000/product/105
+106,"Планшет Huawei MatePad Pro 128GB",Электроника,http://localhost:3000/product/106
+107,"Планшет Huawei MatePad 11 256GB",Электроника,http://localhost:3000/product/107
+108,"Бхагават-Гита как она есть – Бхактиведанта Свами Шрила Прабхупада",Книги,http://localhost:3000/product/108
+109,"Планшет Huawei MediaPad T10 1TB",Электроника,http://localhost:3000/product/109
+110,"Ноутбук Apple MacBook Pro 16"" 64GB",Компьютеры,http://localhost:3000/product/110
+111,"Ноутбук Apple MacBook Pro 14"" 128GB",Компьютеры,http://localhost:3000/product/111
+112,"Ноутбук Apple MacBook Air 15"" 256GB",Компьютеры,http://localhost:3000/product/112
+113,"Ноутбук Apple MacBook Air 13"" 512GB",Компьютеры,http://localhost:3000/product/113
+114,"Ноутбук ASUS ROG Strix G16 1TB",Компьютеры,http://localhost:3000/product/114
+115,"Ноутбук ASUS TUF Gaming A15 64GB",Компьютеры,http://localhost:3000/product/115
+116,"Ноутбук ASUS Vivobook Pro 15 128GB",Компьютеры,http://localhost:3000/product/116
+117,"Ноутбук ASUS ZenBook 14 256GB",Компьютеры,http://localhost:3000/product/117
+118,"Ноутбук Lenovo Legion 5 Pro 512GB",Компьютеры,http://localhost:3000/product/118
+119,"Ноутбук Lenovo IdeaPad Gaming 3 1TB",Компьютеры,http://localhost:3000/product/119
+120,"Ноутбук Lenovo ThinkPad X1 Carbon 64GB",Компьютеры,http://localhost:3000/product/120
+121,"Ноутбук Lenovo Yoga Slim 7 128GB",Компьютеры,http://localhost:3000/product/121
+122,"Ноутбук HP Omen 16 256GB",Компьютеры,http://localhost:3000/product/122
+123,"Ноутбук HP Pavilion Gaming 15 512GB",Компьютеры,http://localhost:3000/product/123
+124,"Ноутбук HP Envy 13 1TB",Компьютеры,http://localhost:3000/product/124
+125,"Ноутбук HP ProBook 450 64GB",Компьютеры,http://localhost:3000/product/125
+126,"Ноутбук Dell XPS 15 128GB",Компьютеры,http://localhost:3000/product/126
+127,"Ноутбук Dell G15 Gaming 256GB",Компьютеры,http://localhost:3000/product/127
+128,"Ноутбук Dell Inspiron 15 512GB",Компьютеры,http://localhost:3000/product/128
+129,"Ноутбук Dell Latitude 5430 1TB",Компьютеры,http://localhost:3000/product/129
+130,"Ноутбук Acer Predator Helios 300 64GB",Компьютеры,http://localhost:3000/product/130
+131,"Ноутбук Acer Nitro 5 128GB",Компьютеры,http://localhost:3000/product/131
+132,"Ноутбук Acer Swift 3 256GB",Компьютеры,http://localhost:3000/product/132
+133,"Ноутбук Acer Aspire 5 512GB",Компьютеры,http://localhost:3000/product/133
+134,"Ноутбук MSI Raider GE78 1TB",Компьютеры,http://localhost:3000/product/134
+135,"Ноутбук MSI Katana 15 64GB",Компьютеры,http://localhost:3000/product/135
+136,"Ноутбук MSI Prestige 14 128GB",Компьютеры,http://localhost:3000/product/136
+137,"Ноутбук MSI Modern 15 256GB",Компьютеры,http://localhost:3000/product/137
+138,"Ноутбук Razer Blade 15 512GB",Компьютеры,http://localhost:3000/product/138
+139,"Ноутбук Razer Blade 14 1TB",Компьютеры,http://localhost:3000/product/139
+140,"Ноутбук Razer Book 13 64GB",Компьютеры,http://localhost:3000/product/140
+141,"Монитор ASUS ROG Swift PG27UQ",Компьютеры,http://localhost:3000/product/141
+142,"Монитор ASUS TUF Gaming VG27AQ",Компьютеры,http://localhost:3000/product/142
+143,"Монитор ASUS ProArt PA279CV",Компьютеры,http://localhost:3000/product/143
+144,"Монитор Samsung Odyssey G7",Компьютеры,http://localhost:3000/product/144
+145,"Монитор Samsung ViewFinity S9",Компьютеры,http://localhost:3000/product/145
+146,"Монитор Samsung M8 Smart Monitor",Компьютеры,http://localhost:3000/product/146
+147,"Монитор LG UltraGear 27GN950",Компьютеры,http://localhost:3000/product/147
+148,"Монитор LG 27UP850",Компьютеры,http://localhost:3000/product/148
+149,"Монитор LG 27UL500",Компьютеры,http://localhost:3000/product/149
+150,"Монитор Dell UltraSharp U2723DE",Компьютеры,http://localhost:3000/product/150
+151,"Монитор Dell S2721DGF",Компьютеры,http://localhost:3000/product/151
+152,"Монитор Dell P2422H",Компьютеры,http://localhost:3000/product/152
+153,"Монитор BenQ MOBIUZ EX3210U",Компьютеры,http://localhost:3000/product/153
+154,"Монитор BenQ ZOWIE XL2546K",Компьютеры,http://localhost:3000/product/154
+155,"Монитор BenQ PD2725U",Компьютеры,http://localhost:3000/product/155
+156,"Монитор AOC AGON AG273QX",Компьютеры,http://localhost:3000/product/156
+157,"Монитор AOC C27G2Z",Компьютеры,http://localhost:3000/product/157
+158,"Монитор AOC Q27P2Q",Компьютеры,http://localhost:3000/product/158
+159,"Монитор MSI Optix MAG274QRF",Компьютеры,http://localhost:3000/product/159
+160,"Монитор MSI MAG323UPF",Компьютеры,http://localhost:3000/product/160
+161,"Монитор MSI Modern MD272QPW",Компьютеры,http://localhost:3000/product/161
+162,"Клавиатура механическая Logitech G915",Компьютеры,http://localhost:3000/product/162
+163,"Мышь беспроводная Logitech MX Master 3S",Компьютеры,http://localhost:3000/product/163
+164,"Гарнитура игровая HyperX Cloud II",Компьютеры,http://localhost:3000/product/164
+165,"Веб-камера Logitech C920 Pro HD",Компьютеры,http://localhost:3000/product/165
+166,"Микрофон студийный Blue Yeti",Компьютеры,http://localhost:3000/product/166
+167,"Коврик для мыши SteelSeries QcK XXL",Компьютеры,http://localhost:3000/product/167
+168,"ИБП APC Back-UPS 650VA",Компьютеры,http://localhost:3000/product/168
+169,"Внешний SSD Samsung T7 1TB",Компьютеры,http://localhost:3000/product/169
+170,"USB-хаб Anker 10 портов",Компьютеры,http://localhost:3000/product/170
+171,"Док-станция Dell WD19",Компьютеры,http://localhost:3000/product/171
+172,"Графический планшет Wacom Intuos Pro",Компьютеры,http://localhost:3000/product/172
+173,"Стример Elgato Stream Deck",Компьютеры,http://localhost:3000/product/173
+174,"Светодиодная подсветка Philips Hue",Компьютеры,http://localhost:3000/product/174
+175,"Кресло геймерское DXRacer Formula",Компьютеры,http://localhost:3000/product/175
+176,"Стол письменный IKEA Bekant",Компьютеры,http://localhost:3000/product/176
+177,"Колонки студийные KRK Rokit 5",Компьютеры,http://localhost:3000/product/177
+178,"Звуковая карта Focusrite Scarlett 2i2",Компьютеры,http://localhost:3000/product/178
+179,"Кабель HDMI 2.1 Belkin 2м",Компьютеры,http://localhost:3000/product/179
+180,"Адаптер USB-C Satechi",Компьютеры,http://localhost:3000/product/180
+181,"Флешка Kingston 128GB",Компьютеры,http://localhost:3000/product/181
+182,"Карта памяти SanDisk Extreme 256GB",Компьютеры,http://localhost:3000/product/182
+183,"Роутер Wi-Fi 6 TP-Link AX3000",Компьютеры,http://localhost:3000/product/183
+184,"Сетевой коммутатор Netgear GS108",Компьютеры,http://localhost:3000/product/184
+185,"Умная розетка Xiaomi Smart Plug",Компьютеры,http://localhost:3000/product/185
+186,"Умная лампочка Yeelight LED Bulb",Компьютеры,http://localhost:3000/product/186
+187,"Принтер HP LaserJet Pro M15w",Компьютеры,http://localhost:3000/product/187
+188,"Сканер Epson Perfection V39",Компьютеры,http://localhost:3000/product/188
+189,"Проектор BenQ TH685P",Компьютеры,http://localhost:3000/product/189
+190,"Экран для проектора 100",Компьютеры,http://localhost:3000/product/190
+191,"VR-шлем Meta Quest 3",Компьютеры,http://localhost:3000/product/191
+192,"Контроллер Xbox Wireless",Компьютеры,http://localhost:3000/product/192
+193,"Руль Logitech G29",Компьютеры,http://localhost:3000/product/193
+194,"Джойстик Thrustmaster T16000M",Компьютеры,http://localhost:3000/product/194
+195,"Стрим-камера Elgato Facecam",Компьютеры,http://localhost:3000/product/195
+196,"Зеленый фон для стрима Neewer",Компьютеры,http://localhost:3000/product/196
+197,"Кольцевая лампа 18",Компьютеры,http://localhost:3000/product/197
+198,"Штатив для камеры Manfrotto",Компьютеры,http://localhost:3000/product/198
+199,"Сумка для ноутбука Thule 15",Компьютеры,http://localhost:3000/product/199
+200,"Чехол для планшета Apple Smart Cover",Компьютеры,http://localhost:3000/product/200
+201,"Защитная пленка для экрана",Компьютеры,http://localhost:3000/product/201
+202,"Холодильник Samsung Side-by-Side 600л",Бытовая техника,http://localhost:3000/product/202
+203,"Стиральная машина LG с AI 9кг",Бытовая техника,http://localhost:3000/product/203
+204,"Пылесос Dyson V15 Detect",Бытовая техника,http://localhost:3000/product/204
+205,"Куртка зимняя The North Face",Одежда,http://localhost:3000/product/205
+206,"Джинсы Levis 501 Original",Одежда,http://localhost:3000/product/206
+207,"Футболка Adidas Originals",Одежда,http://localhost:3000/product/207
+208,"Худи Nike Tech Fleece",Одежда,http://localhost:3000/product/208
+209,"Кроссовки Nike Air Max 90",Обувь,http://localhost:3000/product/209
+210,"Ботинки Timberland 6 Inch",Обувь,http://localhost:3000/product/210
+211,"Кеды Converse Chuck Taylor All Star",Обувь,http://localhost:3000/product/211
+212,"Сандалии Birkenstock Arizona",Обувь,http://localhost:3000/product/212
+213,"Туфли классические Ecco",Обувь,http://localhost:3000/product/213
+214,"Матрас ортопедический 160x200",Дом и сад,http://localhost:3000/product/214
+215,"Подушка анатомическая с памятью",Дом и сад,http://localhost:3000/product/215
+216,"Одеяло пуховое 200x220",Дом и сад,http://localhost:3000/product/216
+217,"Комплект постельного белья сатин",Дом и сад,http://localhost:3000/product/217
+218,"Набор посуды Tefal 12 предметов",Дом и сад,http://localhost:3000/product/218
+219,"Мультиварка Redmond 6л",Дом и сад,http://localhost:3000/product/219
+220,"Коляска Cybex Priam 3в1",Детские товары,http://localhost:3000/product/220
+221,"Автокресло Britax Romer",Детские товары,http://localhost:3000/product/221
+222,"Радионяня Philips Avent",Детские товары,http://localhost:3000/product/222
+223,"Электрическая зубная щетка Oral-B Genius",Красота и здоровье,http://localhost:3000/product/223
+224,"Тонометр автоматический Omron",Красота и здоровье,http://localhost:3000/product/224
+225,"Массажер для спины Beurer",Красота и здоровье,http://localhost:3000/product/225
+226,"Велосипед горный Trek X-Caliber",Спорт и отдых,http://localhost:3000/product/226
+227,"Самокат электрический Xiaomi Pro 2",Спорт и отдых,http://localhost:3000/product/227
+228,"Гантели разборные 20кг пара",Спорт и отдых,http://localhost:3000/product/228
+229,"Кофе в зернах Lavazza 1кг",Продукты,http://localhost:3000/product/229
+230,"Чай черный Greenfield ассорти",Продукты,http://localhost:3000/product/230
+231,"Шоколад Lindt молочный",Продукты,http://localhost:3000/product/231
+232,"Корм для кошек Royal Canin 10кг",Зоотовары,http://localhost:3000/product/232
+233,"Лоток-туалет для кошек автоматический",Зоотовары,http://localhost:3000/product/233
+234,"Игровой комплекс для кошек",Зоотовары,http://localhost:3000/product/234
+236,"Чистый код - Роберт Мартин",Книги,http://localhost:3000/product/236
+238,"Игровая консоль PlayStation 5",Хобби,http://localhost:3000/product/238
+239,"Игровая консоль Xbox Series X",Хобби,http://localhost:3000/product/239
+240,"Nintendo Switch OLED",Хобби,http://localhost:3000/product/240
+241,"Дрон DJI Mini 3 Pro с камерой 4K",Хобби,http://localhost:3000/product/241
+242,"Набор для рисования Faber-Castell 120 цветов",Хобби,http://localhost:3000/product/242
+243,"Гитара акустическая Yamaha F310",Хобби,http://localhost:3000/product/243
+244,"Планшет Huawei MatePad SE 512GB",Электроника,http://localhost:3000/product/244
+245,"Secure by Design — Dan Bergh Johnsson, Daniel Deogun, Daniel Sawano",Книги,http://localhost:3000/product/245
+246,"Designing Secure Software — Loren Kohnfelder (Microsoft)",Книги,http://localhost:3000/product/246
+247,"The Web Application Hacker’s Handbook (2nd Ed.) — Stuttard & Pinto",Книги,http://localhost:3000/product/247
+248,"OWASP Cheat Sheet Series",Книги,http://localhost:3000/product/248
+249,"Мы – Евгений Замятин",Книги,http://localhost:3000/product/249
+250,"Стив Джобс Уолтер Айзексон",Книги,http://localhost:3000/product/250
+251,"Моторное масло Mobil 1 5W-30 4л",Авто и мото,http://localhost:3000/product/251
+252,"Автомобильные шины Michelin Pilot Sport 4 225/45 R17",Авто и мото,http://localhost:3000/product/252
+253,"Аккумулятор автомобильный Bosch S5 60Ah",Авто и мото,http://localhost:3000/product/253
+254,"Видеорегистратор Xiaomi 70mai Pro Plus+",Авто и мото,http://localhost:3000/product/254
+255,"Фары светодиодные Philips LED H7",Авто и мото,http://localhost:3000/product/255
+256,"Коврики автомобильные резиновые универсальные",Авто и мото,http://localhost:3000/product/256
+257,"Компрессор автомобильный Berkut R20",Авто и мото,http://localhost:3000/product/257
+258,"Зарядное устройство автомобильное Baseus 65W",Авто и мото,http://localhost:3000/product/258
+259,"Шлем мотоциклетный HJC i70",Авто и мото,http://localhost:3000/product/259
+260,"Автомобильный огнетушитель ОП-2",Авто и мото,http://localhost:3000/product/260
+261,"Игровая консоль Sony PlayStation 5 Slim",Игры и консоли,http://localhost:3000/product/261
+262,"Игровая консоль Microsoft Xbox Series X 1TB",Игры и консоли,http://localhost:3000/product/262
+263,"Игровая консоль Nintendo Switch OLED",Игры и консоли,http://localhost:3000/product/263
+264,"Игра Spider-Man 2 для PlayStation 5",Игры и консоли,http://localhost:3000/product/264
+265,"Игра God of War Ragnarök для PlayStation 5",Игры и консоли,http://localhost:3000/product/265
+266,"Игра Hogwarts Legacy для PlayStation 5",Игры и консоли,http://localhost:3000/product/266
+267,"Игра Forza Horizon 5 для Xbox Series X",Игры и консоли,http://localhost:3000/product/267
+268,"Игра Starfield для Xbox Series X",Игры и консоли,http://localhost:3000/product/268
+269,"Игра Halo Infinite для Xbox Series X",Игры и консоли,http://localhost:3000/product/269
+270,"Игра The Legend of Zelda Tears of the Kingdom для Nintendo Switch",Игры и консоли,http://localhost:3000/product/270
+271,"Игра Super Mario Bros Wonder для Nintendo Switch",Игры и консоли,http://localhost:3000/product/271
+272,"Игра Pokemon Scarlet для Nintendo Switch",Игры и консоли,http://localhost:3000/product/272
+273,"Геймпад Sony DualSense белый",Игры и консоли,http://localhost:3000/product/273
+274,"Геймпад Sony DualSense черный",Игры и консоли,http://localhost:3000/product/274
+275,"Геймпад Microsoft Xbox Wireless Controller черный",Игры и консоли,http://localhost:3000/product/275
+276,"VR-гарнитура Meta Quest 3 128GB",Игры и консоли,http://localhost:3000/product/276
+277,"VR-гарнитура Sony PlayStation VR2",Игры и консоли,http://localhost:3000/product/277
+278,"Игровое кресло DXRacer Formula Series",Игры и консоли,http://localhost:3000/product/278
+279,"Игровой руль Logitech G29 с педалями",Игры и консоли,http://localhost:3000/product/279
+280,"Игровая гарнитура HyperX Cloud II красная",Игры и консоли,http://localhost:3000/product/280
+281,"Игровая мышь Logitech G Pro X Superlight",Игры и консоли,http://localhost:3000/product/281
+282,"Игровая мышь Razer DeathAdder V3",Игры и консоли,http://localhost:3000/product/282
+283,"Игровая клавиатура механическая SteelSeries Apex Pro",Игры и консоли,http://localhost:3000/product/283
+284,"Игровая клавиатура Razer BlackWidow V4 Pro",Игры и консоли,http://localhost:3000/product/284
+285,"Игровой коврик для мыши SteelSeries QcK XXL",Игры и консоли,http://localhost:3000/product/285
+286,"Подписка PlayStation Plus Premium 12 месяцев",Игры и консоли,http://localhost:3000/product/286
+287,"Подписка Xbox Game Pass Ultimate 12 месяцев",Игры и консоли,http://localhost:3000/product/287
+288,"Игровой монитор ASUS ROG Swift 27 165Hz",Игры и консоли,http://localhost:3000/product/288
+289,"Игровая консоль Sony PlayStation 5 Digital Edition",Игры и консоли,http://localhost:3000/product/289
+290,"Игровая консоль Microsoft Xbox Series S 512GB",Игры и консоли,http://localhost:3000/product/290
+291,"Диван угловой IKEA FRIHETEN серый",Мебель,http://localhost:3000/product/291
+292,"Кровать двуспальная IKEA MALM 160x200",Мебель,http://localhost:3000/product/292
+293,"Шкаф-купе 3-дверный белый 200x220",Мебель,http://localhost:3000/product/293
+294,"Стол обеденный раздвижной на 6 персон",Мебель,http://localhost:3000/product/294
+295,"Комод с 5 ящиками белый",Мебель,http://localhost:3000/product/295
+296,"Тумба прикроватная IKEA HEMNES белая",Мебель,http://localhost:3000/product/296
+297,"Стеллаж открытый 5 полок белый",Мебель,http://localhost:3000/product/297
+298,"Кресло мягкое STRANDMON серое",Мебель,http://localhost:3000/product/298
+299,"Журнальный столик со стеклянной столешницей",Мебель,http://localhost:3000/product/299
+300,"Книжный шкаф Billy IKEA белый",Мебель,http://localhost:3000/product/300
+301,"Микроволновая печь Samsung 23л с грилем",Бытовая техника,http://localhost:3000/product/301
+302,"Кофемашина De'Longhi автоматическая",Бытовая техника,http://localhost:3000/product/302
+303,"Посудомоечная машина Bosch 60см 14 комплектов",Бытовая техника,http://localhost:3000/product/303
+304,"Электрочайник Xiaomi Mi Smart Kettle Pro",Бытовая техника,http://localhost:3000/product/304
+305,"Мультиварка Redmond с йогуртницей 5л",Бытовая техника,http://localhost:3000/product/305
+306,"Блендер Bosch погружной 1000W",Бытовая техника,http://localhost:3000/product/306
+307,"Тостер Philips на 2 ломтика с размораживанием",Бытовая техника,http://localhost:3000/product/307
+308,"Соковыжималка Braun центробежная 1200W",Бытовая техника,http://localhost:3000/product/308
+309,"Хлебопечка Panasonic с программой французского хлеба",Бытовая техника,http://localhost:3000/product/309
+310,"Утюг Tefal с паровым ударом 200г/мин",Бытовая техника,http://localhost:3000/product/310
+311,"Вентилятор Dyson Pure Cool очиститель воздуха",Бытовая техника,http://localhost:3000/product/311
+312,"Обогреватель Electrolux масляный 2500W",Бытовая техника,http://localhost:3000/product/312
+313,"Увлажнитель воздуха Xiaomi Mi Smart Antibacterial",Бытовая техника,http://localhost:3000/product/313
+314,"Электрогриль Tefal OptiGrill+ контроль температуры",Бытовая техника,http://localhost:3000/product/314
+315,"Кухонный комбайн KitchenAid 4.8л с насадками",Бытовая техника,http://localhost:3000/product/315
+316,"Вафельница Philips антипригарное покрытие",Бытовая техника,http://localhost:3000/product/316
+317,"Миксер Bosch планетарный 1000W с чашей",Бытовая техника,http://localhost:3000/product/317
+318,"Электромясорубка Moulinex 2000W реверс",Бытовая техника,http://localhost:3000/product/318
+319,"Сушилка для овощей и фруктов Kitfort 5 ярусов",Бытовая техника,http://localhost:3000/product/319
+320,"Электрический духовой шкаф Gorenje 65л конвекция",Бытовая техника,http://localhost:3000/product/320
+321,"Компьютер игровой Intel Core i7 RTX 4070",Компьютеры,http://localhost:3000/product/321
+322,"ПК офисный Intel Core i5 16GB RAM",Компьютеры,http://localhost:3000/product/322
+323,"Системный блок AMD Ryzen 7 RX 7800",Компьютеры,http://localhost:3000/product/323
+324,"Процессор Intel Core i9-14900K 24 ядра",Компьютеры,http://localhost:3000/product/324
+325,"Видеокарта NVIDIA RTX 4090 24GB",Компьютеры,http://localhost:3000/product/325
+326,"Роутер TP-Link Archer AX73 WiFi 6",Компьютеры,http://localhost:3000/product/326
+327,"Маршрутизатор Asus RT-AX88U Dual-Band",Компьютеры,http://localhost:3000/product/327
+328,"Портативная колонка JBL Flip 6 Bluetooth",Электроника,http://localhost:3000/product/328
+329,"Умная колонка Яндекс Станция Макс",Электроника,http://localhost:3000/product/329
+330,"Акустическая система Marshall Emberton II",Электроника,http://localhost:3000/product/330
+331,"Экшн-камера GoPro HERO 12 Black",Электроника,http://localhost:3000/product/331
+332,"Фотоаппарат Canon EOS R6 Mark II",Электроника,http://localhost:3000/product/332
+333,"Видеокамера Sony FDR-AX700 4K HDR",Электроника,http://localhost:3000/product/333
+334,"Рубашка мужская деловая белая",Одежда,http://localhost:3000/product/334
+335,"Брюки мужские классические черные",Одежда,http://localhost:3000/product/335
+336,"Пиджак мужской серый шерстяной",Одежда,http://localhost:3000/product/336
+337,"Платье женское вечернее черное",Одежда,http://localhost:3000/product/337
+338,"Блузка женская шелковая белая",Одежда,http://localhost:3000/product/338
+339,"Юбка женская карандаш синяя",Одежда,http://localhost:3000/product/339
+340,"Комбинезон детский утепленный",Одежда,http://localhost:3000/product/340
+341,"Куртка детская демисезонная",Одежда,http://localhost:3000/product/341
+342,"Джинсы детские синие",Одежда,http://localhost:3000/product/342
+343,"Ремень мужской кожаный черный",Одежда,http://localhost:3000/product/343
+344,"Шарф кашемировый серый",Одежда,http://localhost:3000/product/344
+345,"Перчатки кожаные зимние",Одежда,http://localhost:3000/product/345
+346,"Ботинки мужские зимние кожаные",Обувь,http://localhost:3000/product/346
+347,"Туфли мужские классические черные",Обувь,http://localhost:3000/product/347
+348,"Мокасины мужские замшевые",Обувь,http://localhost:3000/product/348
+349,"Сапоги женские кожаные черные",Обувь,http://localhost:3000/product/349
+350,"Туфли женские на каблуке бежевые",Обувь,http://localhost:3000/product/350
+351,"Балетки женские кожаные",Обувь,http://localhost:3000/product/351
+352,"Кроссовки детские Nike Air Force",Обувь,http://localhost:3000/product/352
+353,"Ботинки детские утепленные",Обувь,http://localhost:3000/product/353
+354,"Сандалии детские летние",Обувь,http://localhost:3000/product/354
+355,"Кроссовки Adidas Ultraboost беговые",Обувь,http://localhost:3000/product/355
+356,"Кроссовки Puma RS-X спортивные",Обувь,http://localhost:3000/product/356
+357,"Кеды Vans Old Skool черные",Обувь,http://localhost:3000/product/357

@@ -1,0 +1,209 @@
+.header {
+  background: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+/* Логотип */
+.logo {
+  margin-right: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logoPunk {
+  color: var(--primary);
+}
+
+.logoMarket {
+  color: var(--text-primary);
+}
+
+/* Mode Selector */
+.modeSelectorWrapper {
+  margin-right: 16px;
+}
+
+/* Backend Selector - только для AppSec режима */
+.backendSelectorWrapper {
+  margin-right: 16px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Кнопка каталога */
+.catalogBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.catalogBtn:hover {
+  background: #5851e6;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.catalogBtnActive {
+  background: #5851e6;
+  box-shadow: var(--shadow-md);
+}
+
+/* Поиск */
+.searchWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
+  padding: 4px 4px 4px 16px;
+  transition: all 0.2s ease;
+}
+
+.searchWrapper:focus-within {
+  background: white;
+  box-shadow: var(--shadow-md);
+  outline: 2px solid var(--primary);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--text-light);
+}
+
+.searchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.searchBtn:hover {
+  background: #5851e6;
+}
+
+/* Навигация справа */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--primary);
+}
+
+.cartIcon {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .catalogBtn {
+    padding: 10px 16px;
+  }
+  
+  .navRight {
+    gap: 16px;
+  }
+
+  .modeSelectorWrapper {
+    margin-right: 8px;
+  }
+
+  .themeToggleWrapper {
+    margin-right: 8px;
+  }
+
+  .backendSelectorWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-wrap: wrap;
+  }
+  
+  .searchWrapper {
+    order: 3;
+    width: 100%;
+  }
+  
+  .navLink span {
+    display: none;
+  }
+}

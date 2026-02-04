@@ -1,0 +1,783 @@
+export interface Product {
+  id: string;
+  title: string;
+  price: number;
+  oldPrice?: number;
+  rating: number;
+  reviews: number;
+  image: string;
+  badge?: string;
+  inStock: boolean;
+  categoryId: number;
+  category: string;
+  // Расширенные поля для фильтров (уязвимости!)
+  brand?: string;
+  color?: string;
+  storage?: string;  // Память (для смартфонов/ноутбуков)
+  ram?: string;      // ОЗУ
+  screen?: string;   // Диагональ экрана
+  processor?: string; // Процессор
+  warranty?: number;  // Гарантия (месяцы)
+  seller?: string;    // Продавец (для IDOR)
+  discount?: number;  // Скидка в %
+}
+
+// Детерминированная функция генерации случайных чисел на основе seed
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+// Вспомогательная функция для генерации товаров
+function generateProduct(
+  id: number,
+  title: string,
+  basePrice: number,
+  categoryId: number,
+  category: string,
+  options: Partial<Product> = {}
+): Product {
+  // Используем id как seed для детерминированной генерации
+  const rand1 = seededRandom(id * 1);
+  const rand2 = seededRandom(id * 2);
+  const rand3 = seededRandom(id * 3);
+  const rand4 = seededRandom(id * 4);
+  const rand5 = seededRandom(id * 5);
+  const rand6 = seededRandom(id * 6);
+  const rand7 = seededRandom(id * 7);
+  
+  const hasDiscount = rand1 > 0.7;
+  const discountPercent = hasDiscount ? Math.floor(rand2 * 40) + 10 : 0;
+  const price = Math.floor(basePrice);
+  const oldPrice = hasDiscount ? Math.floor(basePrice / (1 - discountPercent / 100)) : undefined;
+  
+  const badges = hasDiscount ? ['Скидка', 'Хит продаж', 'Супер цена'] : ['Новинка', 'Хит продаж', null];
+  const badge = rand3 > 0.6 ? badges[Math.floor(rand4 * badges.length)] : undefined;
+  
+  // Генерируем дефолтный image - сначала пробуем по ID, потом фолбэк
+  const imageById = `/images/${id}.png`;
+  const defaultImage = options.image || imageById;
+  
+  return {
+    id: id.toString(),
+    title,
+    price,
+    oldPrice: oldPrice || undefined,
+    rating: +(rand5 * 1 + 4).toFixed(1), // 4.0-5.0
+    reviews: Math.floor(rand6 * 5000) + 50,
+    image: defaultImage,
+    badge,
+    inStock: rand7 > 0.1, // 90% в наличии
+    categoryId,
+    category,
+    discount: discountPercent || undefined,
+    warranty: [12, 24, 36][id % 3],
+    seller: ['OmniMarket', 'TechStore', 'ElectroPlus', 'GadgetHub'][id % 4],
+    ...options,
+  };
+}
+
+// ===== КАТЕГОРИЯ 1: ЭЛЕКТРОНИКА (100 товаров) =====
+const electronicsProducts: Product[] = [];
+
+// Смартфоны (40 товаров)
+const smartphoneBrands = ['Samsung', 'Apple', 'Xiaomi', 'OPPO', 'Realme', 'OnePlus', 'Google', 'Motorola'];
+const smartphoneModels = {
+  Samsung: ['Galaxy S24 Ultra', 'Galaxy S24+', 'Galaxy S24', 'Galaxy Z Fold 5', 'Galaxy Z Flip 5', 'Galaxy A54', 'Galaxy A34', 'Galaxy M54'],
+  Apple: ['iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15', 'iPhone 14 Pro', 'iPhone 14', 'iPhone 13', 'iPhone SE'],
+  Xiaomi: ['14 Ultra', '14 Pro', '14', '13T Pro', '13T', 'Redmi Note 13 Pro', 'Redmi Note 13', 'Poco X6 Pro'],
+  OPPO: ['Find X7 Pro', 'Find X7', 'Reno 11 Pro', 'Reno 11', 'A79', 'A59', 'A18', 'A38'],
+  Realme: ['GT 5 Pro', 'GT 5', '12 Pro+', '12 Pro', '12', 'C67', 'C55', 'C53'],
+  OnePlus: ['12 Pro', '12', '11T', '11', 'Nord 3', 'Nord CE 3', 'Nord N30', 'Nord N20'],
+  Google: ['Pixel 8 Pro', 'Pixel 8', 'Pixel 7a', 'Pixel 7 Pro', 'Pixel 7', 'Pixel Fold'],
+  Motorola: ['Edge 40 Pro', 'Edge 40', 'G84', 'G54', 'G34', 'E13'],
+};
+
+const storageOptions = ['64GB', '128GB', '256GB', '512GB', '1TB'];
+const ramOptions = ['4GB', '6GB', '8GB', '12GB', '16GB'];
+const colors = ['Черный', 'Белый', 'Синий', 'Зеленый', 'Фиолетовый', 'Серый'];
+const screenSizes = ['6.1"', '6.4"', '6.7"', '6.8"'];
+
+let productId = 1;
+
+smartphoneBrands.forEach((brand, brandIndex) => {
+  const models = smartphoneModels[brand as keyof typeof smartphoneModels];
+  const productsPerBrand = Math.ceil(40 / smartphoneBrands.length);
+  
+  // Фолбэк изображения для каждого бренда
+  const brandImages: { [key: string]: string } = {
+    'Samsung': '1610945415295-d9bbf067e59c',  // Samsung phone
+    'Apple': '1511707171634-5f897ff02aa9',     // iPhone
+    'Xiaomi': '1610945415295-d9bbf067e59c',    // Smartphone
+    'OPPO': '1610945415295-d9bbf067e59c',      // Generic smartphone
+    'Realme': '1511707171634-5f897ff02aa9',    // Generic smartphone
+    'OnePlus': '1610945415295-d9bbf067e59c',   // Generic smartphone
+    'Google': '1511707171634-5f897ff02aa9',    // Pixel phone
+    'Motorola': '1610945415295-d9bbf067e59c',  // Generic smartphone
+  };
+  
+  for (let i = 0; i < Math.min(productsPerBrand, models.length); i++) {
+    const model = models[i];
+    const itemId = productId;
+    const storage = storageOptions[itemId % storageOptions.length];
+    const ram = ramOptions[itemId % ramOptions.length];
+    const screen = screenSizes[itemId % screenSizes.length];
+    const color = colors[itemId % colors.length];
+    
+    const basePrice = brand === 'Apple' ? 80000 + (seededRandom(itemId * 10) * 70000) :
+                      brand === 'Samsung' && model.includes('Ultra') ? 70000 + (seededRandom(itemId * 10) * 50000) :
+                      brand === 'Samsung' ? 30000 + (seededRandom(itemId * 10) * 40000) :
+                      brand === 'Xiaomi' && model.includes('Ultra') ? 60000 + (seededRandom(itemId * 10) * 20000) :
+                      brand === 'OnePlus' && model.includes('Pro') ? 50000 + (seededRandom(itemId * 10) * 30000) :
+                      brand === 'Google' ? 40000 + (seededRandom(itemId * 10) * 60000) :
+                      15000 + (seededRandom(itemId * 10) * 35000);
+    
+    // Проверяем наличие локального изображения по полному названию товара
+    const fullTitle = `Смартфон ${brand} ${model} ${storage}`;
+    
+    electronicsProducts.push(generateProduct(
+      productId++,
+      fullTitle,
+      Math.floor(basePrice),
+      1,
+      'Электроника',
+      {
+        brand,
+        storage,
+        ram,
+        screen,
+        color,
+      }
+    ));
+  }
+});
+
+// Наушники и аудио (25 товаров)
+const audioBrands = ['Sony', 'Apple', 'Samsung', 'JBL', 'Bose', 'Sennheiser', 'Audio-Technica', 'Beats'];
+const audioTypes = ['TWS наушники', 'Беспроводные наушники', 'Проводные наушники', 'Портативная колонка', 'Умная колонка'];
+const audioModels: { [key: string]: string[] } = {
+  Sony: ['WH-1000XM5', 'WH-1000XM4', 'WF-1000XM5', 'WF-1000XM4', 'LinkBuds S'],
+  Apple: ['AirPods Pro 2', 'AirPods 3', 'AirPods Max', 'AirPods 2'],
+  Samsung: ['Galaxy Buds2 Pro', 'Galaxy Buds2', 'Galaxy Buds FE'],
+  JBL: ['Tune 770NC', 'Live 660NC', 'Flip 6', 'Charge 5', 'Xtreme 3'],
+  Bose: ['QuietComfort Ultra', 'QuietComfort 45', 'Sport Earbuds'],
+  Sennheiser: ['Momentum 4', 'HD 660S2', 'IE 200'],
+  'Audio-Technica': ['ATH-M50xBT2', 'ATH-M20xBT', 'ATH-CKS50TW'],
+  Beats: ['Studio Pro', 'Solo 4', 'Fit Pro', 'Studio Buds+'],
+};
+
+audioBrands.forEach((brand, idx) => {
+  const models = audioModels[brand];
+  const itemsCount = Math.ceil(25 / audioBrands.length);
+  
+  // Релевантные изображения наушников
+  const headphoneImages = [
+    '1505740420928-5e560c06d30e',  // Black headphones
+    '1545127398-14699f92334b',     // White earbuds
+    '1505740420928-5e560c06d30e',  // Over-ear headphones (заменил 404)
+  ];
+  
+  for (let i = 0; i < Math.min(itemsCount, models.length); i++) {
+    const model = models[i];
+    const itemId = productId;
+    const basePrice = brand === 'Apple' && model.includes('Max') ? 60000 :
+                      brand === 'Apple' ? 15000 + seededRandom(itemId * 11) * 15000 :
+                      brand === 'Bose' || brand === 'Sony' && model.includes('1000XM') ? 25000 + seededRandom(itemId * 11) * 15000 :
+                      5000 + seededRandom(itemId * 11) * 20000;
+    
+    // Определяем тип наушников
+    const isTWS = model.includes('Buds') || model.includes('AirPods') || model.includes('Pro 2');
+    const audioType = isTWS ? 'TWS наушники' : 'Наушники';
+    const fullTitle = `${audioType} ${brand} ${model}`;
+    
+    electronicsProducts.push(generateProduct(
+      productId++,
+      fullTitle,
+      Math.floor(basePrice),
+      1,
+      'Электроника',
+      {
+        brand,
+        color: colors[itemId % colors.length],
+      }
+    ));
+  }
+});
+
+// Умные часы и браслеты (20 товаров)
+const wearableBrands = ['Apple', 'Samsung', 'Xiaomi', 'Huawei', 'Garmin', 'Amazfit', 'Fitbit'];
+const wearableModels: { [key: string]: string[] } = {
+  Apple: ['Watch Series 9 45mm', 'Watch Series 9 41mm', 'Watch Ultra 2', 'Watch SE 44mm', 'Watch SE 40mm'],
+  Samsung: ['Galaxy Watch6 Classic', 'Galaxy Watch6', 'Galaxy Watch5 Pro', 'Galaxy Fit3'],
+  Xiaomi: ['Watch S3', 'Watch 2 Pro', 'Smart Band 8 Pro', 'Smart Band 8', 'Smart Band 7'],
+  Huawei: ['Watch GT 4', 'Watch Fit 3', 'Band 9', 'Band 8'],
+  Garmin: ['Fenix 7', 'Forerunner 965', 'Venu 3', 'Vivoactive 5'],
+  Amazfit: ['GTR 4', 'GTS 4', 'T-Rex Ultra', 'Bip 5'],
+  Fitbit: ['Sense 2', 'Versa 4', 'Charge 6', 'Inspire 3'],
+};
+
+wearableBrands.forEach((brand, idx) => {
+  const models = wearableModels[brand];
+  const itemsCount = Math.ceil(20 / wearableBrands.length);
+  
+  // Релевантные изображения умных часов
+  const watchImages = [
+    '1579586337278-3befd40fd17a',  // Apple Watch
+    '1575311373937-040b8e1fd5b6',  // Smart watch
+  ];
+  
+  for (let i = 0; i < Math.min(itemsCount, models.length); i++) {
+    const model = models[i];
+    const itemId = productId;
+    const isBand = model.includes('Band') || model.includes('Fit') || model.includes('Inspire');
+    const basePrice = brand === 'Apple' && model.includes('Ultra') ? 80000 + seededRandom(itemId * 11) * 20000 :
+                      brand === 'Apple' ? 35000 + seededRandom(itemId * 11) * 20000 :
+                      brand === 'Garmin' && model.includes('Fenix') ? 50000 + seededRandom(itemId * 11) * 30000 :
+                      isBand ? 3000 + seededRandom(itemId * 11) * 5000 :
+                      10000 + seededRandom(itemId * 11) * 25000;
+    
+    electronicsProducts.push(generateProduct(
+      productId++,
+      `${isBand ? 'Фитнес-браслет' : 'Умные часы'} ${brand} ${model}`,
+      Math.floor(basePrice),
+      1,
+      'Электроника',
+      {
+        brand,
+        color: colors[itemId % colors.length],
+        screen: isBand ? '1.47"' : ['1.4"', '1.6"', '1.9"', '2.0"'][Math.floor(seededRandom(itemId * 11) * 4)],
+        image: `https://images.unsplash.com/photo-${watchImages[itemId % watchImages.length]}?w=400&h=400&fit=crop`,
+      }
+    ));
+  }
+});
+
+// Планшеты (15 товаров)
+const tabletBrands = ['Apple', 'Samsung', 'Xiaomi', 'Lenovo', 'Huawei'];
+const tabletModels: { [key: string]: string[] } = {
+  Apple: ['iPad Pro 12.9 M2', 'iPad Pro 11 M2', 'iPad Air 5', 'iPad 10', 'iPad mini 6'],
+  Samsung: ['Galaxy Tab S9 Ultra', 'Galaxy Tab S9+', 'Galaxy Tab S9', 'Galaxy Tab S9 FE+', 'Galaxy Tab A9+'],
+  Xiaomi: ['Pad 6 Pro', 'Pad 6', 'Redmi Pad SE', 'Pad SE'],
+  Lenovo: ['Tab P12', 'Tab P11 Pro Gen 2', 'Tab M10 Plus'],
+  Huawei: ['MatePad Pro 13.2', 'MatePad 11.5', 'MatePad SE'],
+};
+
+tabletBrands.forEach((brand, idx) => {
+  const models = tabletModels[brand];
+  const itemsCount = Math.ceil(15 / tabletBrands.length);
+  
+  // Релевантные изображения планшетов
+  const tabletImages = [
+    '1544244015-0df4b3ffc6b0',  // iPad/Tablet
+    '1561154464-82e9adf32764',  // Tablet
+    '1517336714731-489689fd1ca8', // MacBook/Tablet hybrid
+  ];
+  
+  for (let i = 0; i < Math.min(itemsCount, models.length); i++) {
+    const model = models[i];
+    const itemId = productId;
+    const storage = ['64GB', '128GB', '256GB', '512GB', '1TB'][Math.floor(seededRandom(itemId * 11) * 5)];
+    const basePrice = brand === 'Apple' && model.includes('Pro') ? 80000 + seededRandom(itemId * 11) * 70000 :
+                      brand === 'Apple' ? 40000 + seededRandom(itemId * 11) * 30000 :
+                      brand === 'Samsung' && model.includes('Ultra') ? 70000 + seededRandom(itemId * 11) * 40000 :
+                      brand === 'Samsung' && model.includes('S9') ? 40000 + seededRandom(itemId * 11) * 30000 :
+                      15000 + seededRandom(itemId * 11) * 25000;
+    
+    electronicsProducts.push(generateProduct(
+      productId++,
+      `Планшет ${brand} ${model} ${storage}`,
+      Math.floor(basePrice),
+      1,
+      'Электроника',
+      {
+        brand,
+        storage,
+        screen: model.includes('12') || model.includes('13') ? '12.9"' : model.includes('11') ? '11"' : '10.9"',
+        color: colors[itemId % colors.length],
+        image: `https://images.unsplash.com/photo-${tabletImages[itemId % tabletImages.length]}?w=400&h=400&fit=crop`,
+      }
+    ));
+  }
+});
+
+console.log(`✅ Создано ${electronicsProducts.length} товаров для категории Электроника`);
+
+// ===== КАТЕГОРИЯ 2: КОМПЬЮТЕРЫ (100 товаров) =====
+const computerProducts: Product[] = [];
+
+// Ноутбуки (50 товаров)
+const laptopBrands = ['Apple', 'ASUS', 'Lenovo', 'HP', 'Dell', 'Acer', 'MSI', 'Razer'];
+const laptopSeries: { [key: string]: string[] } = {
+  Apple: ['MacBook Air 13 M2', 'MacBook Air 15 M2', 'MacBook Air 13 M3', 'MacBook Pro 14 M3', 'MacBook Pro 14 M3 Pro', 'MacBook Pro 16 M3 Pro', 'MacBook Pro 16 M3 Max'],
+  ASUS: ['ROG Strix G16 RTX 4060', 'ROG Strix G18 RTX 4070', 'TUF Gaming A15 RTX 4050', 'Vivobook Pro 15', 'Zenbook 14 OLED', 'Zenbook S 13'],
+  Lenovo: ['Legion 5 Pro RTX 4070', 'Legion 7i RTX 4080', 'IdeaPad Gaming 3 RTX 3050', 'ThinkPad X1 Carbon Gen 11', 'Yoga Pro 9i', 'LOQ 15 RTX 4060'],
+  HP: ['Omen 17 RTX 4080', 'Pavilion Gaming 15 RTX 3050', 'Victus 16 RTX 4060', 'Envy x360', 'Spectre x360'],
+  Dell: ['XPS 13 Plus', 'XPS 15', 'G15 Gaming RTX 4050', 'Alienware m16 RTX 4070', 'Alienware x17 RTX 4090'],
+  Acer: ['Nitro 5 RTX 4050', 'Predator Helios 300 RTX 4060', 'Predator Helios 16 RTX 4070', 'Swift X', 'Aspire 5'],
+  MSI: ['Katana 15 RTX 4060', 'Cyborg 15 RTX 4050', 'Raider GE78 RTX 4080', 'Stealth 16 Studio RTX 4070'],
+  Razer: ['Blade 14 RTX 4070', 'Blade 15 RTX 4060', 'Blade 18 RTX 4090'],
+};
+
+laptopBrands.forEach((brand, idx) => {
+  const models = laptopSeries[brand];
+  const itemsCount = Math.ceil(50 / laptopBrands.length);
+  
+  // Релевантные изображения ноутбуков
+  const laptopImages = [
+    '1517336714731-489689fd1ca8',  // MacBook
+    '1603302576837-37561b2e2302',  // Laptop
+    '1588872657578-7efd1f1555ed',  // Gaming laptop
+    '1496181133206-80ce9b88a853',  // Laptop on desk
+  ];
+  
+  for (let i = 0; i < Math.min(itemsCount, models.length); i++) {
+    const model = models[i];
+    const itemId = productId;
+    const storage = ['256GB SSD', '512GB SSD', '1TB SSD', '2TB SSD'][Math.floor(seededRandom(itemId * 11) * 4)];
+    const ram = ['8GB', '16GB', '32GB', '64GB'][Math.floor(seededRandom(itemId * 11) * 4)];
+    const screen = ['13.6"', '14"', '15.6"', '16"', '17.3"', '18"'][Math.floor(seededRandom(itemId * 11) * 6)];
+    
+    const isGaming = model.includes('ROG') || model.includes('Legion') || model.includes('Predator') || 
+                     model.includes('Alienware') || model.includes('Raider') || model.includes('RTX') || 
+                     model.includes('Gaming') || model.includes('Omen');
+    
+    const basePrice = brand === 'Apple' && model.includes('Max') ? 250000 + seededRandom(itemId * 11) * 150000 :
+                      brand === 'Apple' && model.includes('Pro') ? 150000 + seededRandom(itemId * 11) * 100000 :
+                      brand === 'Apple' ? 100000 + seededRandom(itemId * 11) * 50000 :
+                      model.includes('4090') ? 300000 + seededRandom(itemId * 11) * 150000 :
+                      model.includes('4080') ? 200000 + seededRandom(itemId * 11) * 100000 :
+                      model.includes('4070') ? 140000 + seededRandom(itemId * 11) * 60000 :
+                      model.includes('4060') ? 100000 + seededRandom(itemId * 11) * 40000 :
+                      model.includes('4050') || model.includes('3050') ? 70000 + seededRandom(itemId * 11) * 30000 :
+                      isGaming ? 80000 + seededRandom(itemId * 11) * 50000 :
+                      50000 + seededRandom(itemId * 11) * 70000;
+    
+    const processor = brand === 'Apple' ? model.match(/(M2|M3|M3 Pro|M3 Max)/)?.[0] || 'M2' :
+                      isGaming ? ['Intel Core i7-13700H', 'Intel Core i9-13900HX', 'AMD Ryzen 7 7735HS', 'AMD Ryzen 9 7940HS'][Math.floor(seededRandom(itemId * 11) * 4)] :
+                      ['Intel Core i5-1335U', 'Intel Core i7-1355U', 'AMD Ryzen 5 7530U', 'AMD Ryzen 7 7730U'][Math.floor(seededRandom(itemId * 11) * 4)];
+    
+    computerProducts.push(generateProduct(
+      productId++,
+      `Ноутбук ${brand} ${model}`,
+      Math.floor(basePrice),
+      2,
+      'Компьютеры',
+      {
+        brand,
+        storage,
+        ram,
+        screen,
+        processor,
+        color: ['Черный', 'Серый', 'Серебристый', 'Белый'][Math.floor(seededRandom(itemId * 11) * 4)],
+        image: `https://images.unsplash.com/photo-${laptopImages[itemId % laptopImages.length]}?w=400&h=400&fit=crop`,
+      }
+    ));
+  }
+});
+
+// Мониторы (20 товаров)
+const monitorBrands = ['ASUS', 'Samsung', 'LG', 'Dell', 'BenQ', 'AOC', 'MSI'];
+const monitorTypes = ['ROG Swift', 'ROG Strix', 'TUF Gaming', 'ProArt', 'Odyssey', 'UltraGear', 'UltraSharp', 'Zowie', 'Optix'];
+
+monitorBrands.forEach((brand, idx) => {
+  const itemsCount = Math.ceil(20 / monitorBrands.length);
+  
+  // Релевантные изображения мониторов
+  const monitorImages = [
+    '1527443224154-c4a3942d3acf',  // Monitor setup
+    '1593640495253-23196b27a87f',  // Gaming monitor
+  ];
+  
+  for (let i = 0; i < itemsCount; i++) {
+    const itemId = productId;
+    const series = brand === 'ASUS' ? ['ROG Swift', 'ROG Strix', 'TUF Gaming'][Math.floor(seededRandom(itemId * 11) * 3)] :
+                   brand === 'Samsung' ? 'Odyssey' :
+                   brand === 'LG' ? 'UltraGear' :
+                   brand === 'Dell' ? 'UltraSharp' :
+                   brand === 'BenQ' ? 'Zowie' :
+                   brand === 'MSI' ? 'Optix' :
+                   'Gaming';
+    
+    const size = ['24"', '27"', '32"', '34"', '49"'][itemId % 5];
+    const refresh = ['144Hz', '165Hz', '180Hz', '240Hz', '360Hz'][itemId % 5];
+    const resolution = size === '49"' || size === '34"' ? '3440x1440' : 
+                       size === '32"' && (itemId % 2 === 0) ? '3840x2160' :
+                       '2560x1440';
+    
+    const basePrice = size === '49"' ? 100000 + seededRandom(itemId * 11) * 50000 :
+                      refresh === '360Hz' ? 60000 + seededRandom(itemId * 11) * 40000 :
+                      resolution === '3840x2160' ? 50000 + seededRandom(itemId * 11) * 50000 :
+                      refresh === '240Hz' ? 40000 + seededRandom(itemId * 11) * 30000 :
+                      20000 + seededRandom(itemId * 11) * 30000;
+    
+    computerProducts.push(generateProduct(
+      productId++,
+      `Монитор ${brand} ${series} ${size} ${refresh}`,
+      Math.floor(basePrice),
+      2,
+      'Компьютеры',
+      {
+        brand,
+        screen: size,
+        color: ['Черный', 'Серый'][Math.floor(seededRandom(itemId * 11) * 2)],
+        image: `https://images.unsplash.com/photo-${monitorImages[itemId % monitorImages.length]}?w=400&h=400&fit=crop`,
+      }
+    ));
+  }
+});
+
+// Клавиатуры и мыши (15 товаров)
+const peripheralBrands = ['Logitech', 'Razer', 'Corsair', 'SteelSeries', 'HyperX', 'Keychron'];
+const keyboardModels: { [key: string]: string[] } = {
+  Logitech: ['G Pro X', 'G915 TKL', 'G715', 'MX Keys', 'MX Mechanical'],
+  Razer: ['BlackWidow V4 Pro', 'Huntsman V3 Pro', 'DeathStalker V2 Pro'],
+  Corsair: ['K70 RGB Pro', 'K100 Air', 'K65 Plus'],
+  SteelSeries: ['Apex Pro TKL', 'Apex 9 TKL', 'Apex 3 TKL'],
+  HyperX: ['Alloy Origins Core', 'Alloy Rise'],
+  Keychron: ['K8 Pro', 'Q1 Pro', 'V6'],
+};
+
+const mouseModels: { [key: string]: string[] } = {
+  Logitech: ['G Pro X Superlight 2', 'G502 X Plus', 'MX Master 3S', 'G703'],
+  Razer: ['Viper V3 Pro', 'DeathAdder V3 Pro', 'Basilisk V3 Pro'],
+  Corsair: ['Dark Core RGB Pro SE', 'M65 RGB Ultra'],
+  SteelSeries: ['Aerox 9 Wireless', 'Prime Wireless'],
+  HyperX: ['Pulsefire Haste 2', 'Pulsefire Surge'],
+};
+
+// Клавиатуры
+peripheralBrands.forEach((brand, idx) => {
+  if (keyboardModels[brand]) {
+    const models = keyboardModels[brand];
+    
+    // Релевантные изображения клавиатур
+    const keyboardImages = [
+      '1587829741301-dc798b83add3',  // Mechanical keyboard
+      '1595225476474-87563907a212',  // Gaming keyboard
+      '1527814050087-3793815479db',  // RGB keyboard
+    ];
+    
+    models.slice(0, 1).forEach(model => {
+      const itemId = productId;
+      const basePrice = 8000 + seededRandom(itemId * 11) * 15000;
+      computerProducts.push(generateProduct(
+        productId++,
+        `Клавиатура механическая ${brand} ${model}`,
+        Math.floor(basePrice),
+        2,
+        'Компьютеры',
+        {
+          brand,
+          color: ['Черный', 'Белый'][Math.floor(seededRandom(itemId * 11) * 2)],
+          image: `https://images.unsplash.com/photo-${keyboardImages[itemId % keyboardImages.length]}?w=400&h=400&fit=crop`,
+        }
+      ));
+    });
+  }
+});
+
+// Мыши
+peripheralBrands.slice(0, 5).forEach((brand, idx) => {
+  if (mouseModels[brand]) {
+    const models = mouseModels[brand];
+    
+    // Релевантные изображения мышей
+    const mouseImages = [
+      '1527814050087-3793815479db',  // Mouse closeup
+      '1615663245857-ac93bb7c39e7',  // Gaming mouse
+    ];
+    
+    models.slice(0, 2).forEach(model => {
+      const itemId = productId;
+      const basePrice = 5000 + seededRandom(itemId * 11) * 15000;
+      computerProducts.push(generateProduct(
+        productId++,
+        `Мышь ${model.includes('Wireless') || model.includes('Pro') ? 'беспроводная' : 'игровая'} ${brand} ${model}`,
+        Math.floor(basePrice),
+        2,
+        'Компьютеры',
+        {
+          brand,
+          color: ['Черный', 'Белый'][Math.floor(seededRandom(itemId * 11) * 2)],
+          image: `https://images.unsplash.com/photo-${mouseImages[itemId % mouseImages.length]}?w=400&h=400&fit=crop`,
+        }
+      ));
+    });
+  }
+});
+
+// Веб-камеры, микрофоны и аксессуары (15 товаров)
+const accessories = [
+  { type: 'Веб-камера', brands: ['Logitech', 'Razer', 'Elgato'], models: ['C920 Pro HD', 'C922 Pro Stream', 'Brio 4K', 'Kiyo Pro', 'Facecam Pro'] },
+  { type: 'Микрофон', brands: ['Blue', 'HyperX', 'Razer', 'Elgato'], models: ['Yeti X', 'QuadCast S', 'Seiren V3 Chroma', 'Wave:3'] },
+  { type: 'Наушники игровые', brands: ['HyperX', 'SteelSeries', 'Logitech', 'Razer'], models: ['Cloud III Wireless', 'Arctis Nova Pro', 'G Pro X 2', 'BlackShark V2 Pro'] },
+];
+
+accessories.forEach((accessory, idx) => {
+  const count = Math.ceil(15 / accessories.length);
+  
+  // Релевантные изображения для аксессуаров
+  const accessoryImages: { [key: string]: string } = {
+    'Веб-камера': '1614624532983-4ce03382d63d',
+    'Микрофон': '1590602847861-f357a9332bbc',
+    'Наушники игровые': '1505740420928-5e560c06d30e',  // Headphones
+  };
+  
+  for (let i = 0; i < count && i < accessory.models.length; i++) {
+    const itemId = productId;
+    const brand = accessory.brands[i % accessory.brands.length];
+    const model = accessory.models[i];
+    const basePrice = accessory.type === 'Веб-камера' ? 5000 + seededRandom(itemId * 11) * 15000 :
+                      accessory.type === 'Микрофон' ? 10000 + seededRandom(itemId * 11) * 20000 :
+                      8000 + seededRandom(itemId * 11) * 20000;
+    
+    computerProducts.push(generateProduct(
+      productId++,
+      `${accessory.type} ${brand} ${model}`,
+      Math.floor(basePrice),
+      2,
+      'Компьютеры',
+      {
+        brand,
+        color: ['Черный', 'Белый'][Math.floor(seededRandom(itemId * 11) * 2)],
+        image: `https://images.unsplash.com/photo-${accessoryImages[accessory.type]}?w=400&h=400&fit=crop`,
+      }
+    ));
+  }
+});
+
+console.log(`✅ Создано ${computerProducts.length} товаров для категории Компьютеры`);
+
+
+// ===== ОСТАЛЬНЫЕ КАТЕГОРИИ (по 3 товара) =====
+const otherProducts: Product[] = [
+  // Категория 3: Бытовая техника (3 товара)
+  generateProduct(productId++, 'Телевизор Samsung QE55QN90C 55" QLED 4K', 139990, 3, 'Бытовая техника', {
+    brand: 'Samsung',
+    screen: '55"',
+    image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop',
+    badge: 'Хит продаж',
+  }),
+  generateProduct(productId++, 'Холодильник LG Side-by-Side 600L', 89990, 3, 'Бытовая техника', {
+    brand: 'LG',
+    image: 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop',
+  }),
+  generateProduct(productId++, 'Стиральная машина Bosch Serie 8 9кг', 64990, 3, 'Бытовая техника', {
+    brand: 'Bosch',
+    image: 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=400&h=400&fit=crop',
+  }),
+
+  // Категория 4-16: По 3 товара в каждой
+  generateProduct(productId++, 'Куртка мужская зимняя Columbia', 12990, 4, 'Одежда', {
+    brand: 'Columbia',
+    color: 'Черный',
+    image: 'https://loremflickr.com/400/400/jacket,winter,columbia',
+  }),
+  generateProduct(productId++, 'Джинсы Levi\'s 501 Original Fit', 6990, 4, 'Одежда', {
+    brand: 'Levi\'s',
+    color: 'Синий',
+    image: 'https://loremflickr.com/400/400/jeans,denim,levis',
+  }),
+  generateProduct(productId++, 'Футболка Nike Sportswear', 2490, 4, 'Одежда', {
+    brand: 'Nike',
+    color: 'Белый',
+    image: 'https://loremflickr.com/400/400/tshirt,nike,sportswear',
+  }),
+  
+  generateProduct(productId++, 'Кроссовки Nike Air Max 270', 14990, 5, 'Обувь', {
+    brand: 'Nike',
+    color: 'Черный',
+    image: 'https://loremflickr.com/400/400/nike,sneakers,shoes',
+  }),
+  generateProduct(productId++, 'Ботинки Timberland 6-Inch Premium', 19990, 5, 'Обувь', {
+    brand: 'Timberland',
+    color: 'Коричневый',
+    image: 'https://loremflickr.com/400/400/timberland,boots,leather',
+  }),
+  generateProduct(productId++, 'Кеды Converse Chuck Taylor All Star', 5990, 5, 'Обувь', {
+    brand: 'Converse',
+    color: 'Белый',
+    image: 'https://loremflickr.com/400/400/converse,shoes,sneakers',
+  }),
+  
+  generateProduct(productId++, 'Робот-пылесос Xiaomi Vacuum S10', 34990, 6, 'Дом и сад', {
+    brand: 'Xiaomi',
+    image: 'https://loremflickr.com/400/400/robot,vacuum,cleaner',
+  }),
+  generateProduct(productId++, 'Увлажнитель воздуха Dyson Purifier', 49990, 6, 'Дом и сад', {
+    brand: 'Dyson',
+    image: 'https://loremflickr.com/400/400/air,purifier,humidifier',
+  }),
+  generateProduct(productId++, 'Набор посуды Tefal Ingenio 10 предметов', 12990, 6, 'Дом и сад', {
+    brand: 'Tefal',
+    image: 'https://loremflickr.com/400/400/cookware,pots,kitchen',
+  }),
+  
+  generateProduct(productId++, 'Коляска Cybex Priam 3-в-1', 89990, 7, 'Детские товары', {
+    brand: 'Cybex',
+    image: 'https://loremflickr.com/400/400/baby,stroller,carriage',
+  }),
+  generateProduct(productId++, 'Автокресло Britax Romer Dualfix', 34990, 7, 'Детские товары', {
+    brand: 'Britax',
+    image: 'https://loremflickr.com/400/400/car,seat,baby',
+  }),
+  generateProduct(productId++, 'Конструктор LEGO City Police Station', 7990, 7, 'Детские товары', {
+    brand: 'LEGO',
+    image: 'https://loremflickr.com/400/400/lego,toy,blocks',
+  }),
+  
+  generateProduct(productId++, 'Электрическая зубная щетка Oral-B Genius X', 14990, 8, 'Красота и здоровье', {
+    brand: 'Oral-B',
+    image: 'https://loremflickr.com/400/400/toothbrush,electric,dental',
+  }),
+  generateProduct(productId++, 'Фен Dyson Supersonic HD07', 39990, 8, 'Красота и здоровье', {
+    brand: 'Dyson',
+    image: 'https://loremflickr.com/400/400/hair,dryer,dyson',
+  }),
+  generateProduct(productId++, 'Массажер для лица Foreo Luna 3', 19990, 8, 'Красота и здоровье', {
+    brand: 'Foreo',
+    image: 'https://loremflickr.com/400/400/beauty,skincare,device',
+  }),
+  
+  generateProduct(productId++, 'Беговая дорожка NordicTrack T8.5S', 89990, 9, 'Спорт и отдых', {
+    brand: 'NordicTrack',
+    image: 'https://loremflickr.com/400/400/treadmill,fitness,gym',
+  }),
+  generateProduct(productId++, 'Гантели разборные Bowflex 24кг пара', 34990, 9, 'Спорт и отдых', {
+    brand: 'Bowflex',
+    image: 'https://loremflickr.com/400/400/dumbbells,weights,fitness',
+  }),
+  generateProduct(productId++, 'Велосипед горный Trek Marlin 7', 54990, 9, 'Спорт и отдых', {
+    brand: 'Trek',
+    image: 'https://loremflickr.com/400/400/bicycle,mountain,bike',
+  }),
+  
+  generateProduct(productId++, 'Кофе в зернах Lavazza Qualità Oro 1кг', 2490, 10, 'Продукты', {
+    brand: 'Lavazza',
+    image: 'https://loremflickr.com/400/400/coffee,beans,lavazza',
+  }),
+  generateProduct(productId++, 'Чай Twinings English Breakfast 100 пакетиков', 890, 10, 'Продукты', {
+    brand: 'Twinings',
+    image: 'https://loremflickr.com/400/400/tea,cup,breakfast',
+  }),
+  generateProduct(productId++, 'Оливковое масло Monini Extra Virgin 1л', 1290, 10, 'Продукты', {
+    brand: 'Monini',
+    image: 'https://loremflickr.com/400/400/olive,oil,bottle',
+  }),
+  
+  generateProduct(productId++, 'Корм Royal Canin для кошек 10кг', 5990, 11, 'Зоотовары', {
+    brand: 'Royal Canin',
+    image: 'https://loremflickr.com/400/400/cat,food,pet',
+  }),
+  generateProduct(productId++, 'Автопоилка для кошек и собак Catit', 3490, 11, 'Зоотовары', {
+    brand: 'Catit',
+    image: 'https://loremflickr.com/400/400/cat,bowl,water',
+  }),
+  generateProduct(productId++, 'Игровой комплекс для кошек 150см', 12990, 11, 'Зоотовары', {
+    brand: 'Trixie',
+    image: 'https://loremflickr.com/400/400/cat,tree,scratching',
+  }),
+  
+  generateProduct(productId++, 'Книга "Атомные привычки" Джеймс Клир', 990, 12, 'Книги', {
+    brand: 'МИФ',
+    image: 'https://loremflickr.com/400/400/book,atomic,habits',
+  }),
+  generateProduct(productId++, 'Книга "Гарри Поттер" полное собрание', 4990, 12, 'Книги', {
+    brand: 'Росмэн',
+    image: 'https://loremflickr.com/400/400/book,harry,potter',
+  }),
+  generateProduct(productId++, 'Книга "Мастер и Маргарита" М. Булгаков', 690, 12, 'Книги', {
+    brand: 'АСТ',
+    image: 'https://loremflickr.com/400/400/book,russian,classic',
+  }),
+  
+  generateProduct(productId++, 'Видеорегистратор 70mai Dash Cam Pro Plus', 8990, 13, 'Авто и мото', {
+    brand: '70mai',
+    image: 'https://loremflickr.com/400/400/dashcam,car,camera',
+  }),
+  generateProduct(productId++, 'Автомобильное зарядное устройство Anker 65W', 2990, 13, 'Авто и мото', {
+    brand: 'Anker',
+    image: 'https://loremflickr.com/400/400/car,charger,usb',
+  }),
+  generateProduct(productId++, 'Коврики автомобильные EVA 3D премиум', 4990, 13, 'Авто и мото', {
+    image: 'https://loremflickr.com/400/400/car,mats,interior',
+  }),
+  
+  generateProduct(productId++, 'Кресло геймерское DXRacer Formula Series', 34990, 14, 'Мебель', {
+    brand: 'DXRacer',
+    image: 'https://loremflickr.com/400/400/gaming,chair,office',
+  }),
+  generateProduct(productId++, 'Диван угловой IKEA Vimle', 89990, 14, 'Мебель', {
+    brand: 'IKEA',
+    image: 'https://loremflickr.com/400/400/sofa,couch,furniture',
+  }),
+  generateProduct(productId++, 'Стол письменный IKEA Micke', 12990, 14, 'Мебель', {
+    brand: 'IKEA',
+    image: 'https://loremflickr.com/400/400/desk,table,office',
+  }),
+  
+  generateProduct(productId++, 'Игровая консоль PlayStation 5 Slim', 54990, 15, 'Игры и консоли', {
+    brand: 'Sony',
+    image: 'https://loremflickr.com/400/400/playstation,gaming,console',
+  }),
+  generateProduct(productId++, 'Игровая консоль Xbox Series X 1TB', 49990, 15, 'Игры и консоли', {
+    brand: 'Microsoft',
+    image: 'https://loremflickr.com/400/400/xbox,gaming,console',
+  }),
+  generateProduct(productId++, 'Игровая консоль Nintendo Switch OLED', 34990, 15, 'Игры и консоли', {
+    brand: 'Nintendo',
+    image: 'https://loremflickr.com/400/400/nintendo,switch,gaming',
+  }),
+  
+  generateProduct(productId++, 'Дрон DJI Mini 3 Pro с камерой 4K', 69990, 16, 'Хобби', {
+    brand: 'DJI',
+    image: 'https://loremflickr.com/400/400/drone,quadcopter,aerial',
+  }),
+  generateProduct(productId++, 'Набор для рисования Faber-Castell 120 цветов', 8990, 16, 'Хобби', {
+    brand: 'Faber-Castell',
+    image: 'https://loremflickr.com/400/400/art,pencils,drawing',
+  }),
+  generateProduct(productId++, 'Гитара акустическая Yamaha F310', 14990, 16, 'Хобби', {
+    brand: 'Yamaha',
+    image: 'https://loremflickr.com/400/400/guitar,acoustic,yamaha',
+  }),
+];
+
+// ===== ФИНАЛЬНЫЙ ЭКСПОРТ =====
+export const products: Product[] = [
+  ...electronicsProducts,
+  ...computerProducts,
+  ...otherProducts,
+];
+
+export const getProductById = (id: string): Product | undefined => {
+  return products.find(p => p.id === id);
+};
+
+export const getProductsByCategory = (categoryId: number): Product[] => {
+  return products.filter(p => p.categoryId === categoryId);
+};
+
+export const getProductsByBrand = (brand: string): Product[] => {
+  return products.filter(p => p.brand === brand);
+};
+
+export const getBrands = (categoryId?: number): string[] => {
+  const filteredProducts = categoryId ? products.filter(p => p.categoryId === categoryId) : products;
+  const brands = new Set(filteredProducts.map(p => p.brand).filter(Boolean) as string[]);
+  return Array.from(brands).sort();
+};
+
+export const getPriceRange = (categoryId?: number): [number, number] => {
+  const filteredProducts = categoryId ? products.filter(p => p.categoryId === categoryId) : products;
+  const prices = filteredProducts.map(p => p.price);
+  return [Math.min(...prices), Math.max(...prices)];
+};
+
+console.log(`
+🎉 ===== ГЕНЕРАЦИЯ ТОВАРОВ ЗАВЕРШЕНА =====
+📦 Всего товаров: ${products.length}
+📱 Электроника: ${electronicsProducts.length} товаров
+💻 Компьютеры: ${computerProducts.length} товаров
+🏪 Остальные категории: ${otherProducts.length} товаров
+`);

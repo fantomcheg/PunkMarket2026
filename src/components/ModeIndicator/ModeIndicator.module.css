@@ -1,0 +1,54 @@
+.indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.redteam {
+  background: linear-gradient(90deg, 
+    rgba(239, 68, 68, 0.8) 0%, 
+    rgba(220, 38, 38, 0.9) 50%, 
+    rgba(239, 68, 68, 0.8) 100%
+  );
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+.redteam .glow {
+  background: linear-gradient(90deg, 
+    rgba(239, 68, 68, 0.8) 0%, 
+    rgba(220, 38, 38, 0.9) 50%, 
+    rgba(239, 68, 68, 0.8) 100%
+  );
+}
+
+.appsec {
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.8) 0%, 
+    rgba(37, 99, 235, 0.9) 50%, 
+    rgba(59, 130, 246, 0.8) 100%
+  );
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.appsec .glow {
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.8) 0%, 
+    rgba(37, 99, 235, 0.9) 50%, 
+    rgba(59, 130, 246, 0.8) 100%
+  );
+}
